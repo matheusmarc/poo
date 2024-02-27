@@ -2,7 +2,7 @@
 
 ## Exercícios de POO
 
-Execute no terminal com:
-java ```
+Execute no terminal no diretório que o arquivo se encontra com:
+```java
 java (nome-arquivo)
 ```
