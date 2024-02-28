@@ -6,7 +6,7 @@ public class Exercicio3 {
             public static void main(String[] args) {
 
                 Scanner teclado = new Scanner(System.in);
-
+                int[] conferir = new int[101];
                 int numeroAleatorio = new Random().nextInt(100)+1;
                 int tentativas = 5;
                 int cont = 5;
@@ -29,8 +29,13 @@ public class Exercicio3 {
                             break;
                         }
                         else{
-                            contador--;
-                            System.out.println("Você errou! Cuidado, você tem mais " + contador  +  " chances para acertar."  );
+                            if(conferir[numero]>0){
+                                System.out.println("Você já usou o número "+numero+" "+conferir[numero]+" vezes");
+                            }
+                            conferir[numero] = conferir[numero]+1;
+
+                            cont--;
+                            System.out.println("Você errou! Cuidado, você tem mais " + cont  +  " chances para acertar."  );
 
                             if(numero > numeroAleatorio){
                                 System.out.println("O número que foi digitado é maior que o sorteado.");
