@@ -8,12 +8,18 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        Scanner linha = new Scanner(System.in);
+//        Scanner linha = new Scanner(System.in);
+//        int cont = 0;
+//        while(linha.hasNext()){
+//            cont++;
+//            String aux = linha.nextLine();
+//
+//            System.out.println(cont + " - " + aux.toUpperCase());
+//        }
 
-        while(linha.hasNext()){
-            String aux = linha.nextLine();
-
-            System.out.println(aux.toUpperCase());
+        if(args.length > 0){
+            System.out.println("Olá "+args[0]);
         }
+
     }
 }
