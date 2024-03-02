@@ -20,9 +20,13 @@ run{
     
 }
 dependencies {
+    // https://mvnrepository.com/artifact/com.google.zxing/core
+    implementation 'com.google.zxing:core:3.5.3'
+    // https://mvnrepository.com/artifact/com.google.zxing/javase
+    implementation 'com.google.zxing:javase:3.5.3'
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
-
+    implementation files('libs/barcode.jar')
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     // This dependency is used by the application.

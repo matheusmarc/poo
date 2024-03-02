@@ -3,10 +3,19 @@
  */
 package org.example;
 
+import barcode.CodigoDeBarra;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.encoder.QRCode;
+
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, WriterException {
 
 //        Scanner linha = new Scanner(System.in);
 //        int cont = 0;
@@ -17,9 +26,17 @@ public class App {
 //            System.out.println(cont + " - " + aux.toUpperCase());
 //        }
 
-        if(args.length > 0){
-            System.out.println("Olá "+args[0]);
-        }
+//        if(args.length > 0){
+//            System.out.println("Olá "+args[0]);
+//        }
 
+//        CodigoDeBarra.gerarCodigoDeBarra("202320002684","saida.png");
+
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+
+        String msg = "https://www.matheusmarc.com";
+        BitMatrix bitMatrix = qrCodeWriter.encode(msg, BarcodeFormat.QR_CODE,600,600);
+
+        Path
     }
 }
