@@ -13,6 +13,10 @@ public class Buzz {
          return capaceteAberto;
     }
 
+    public boolean isCapaceteAberto() {
+        return capaceteAberto;
+    }
+
     public String falarFrase() {
         Random r = new Random();
         return frases[r.nextInt(6)];
@@ -20,6 +24,10 @@ public class Buzz {
 
     public boolean estadoAsas(boolean estado){
         asasAbertas = estado;
+        return asasAbertas;
+    }
+
+    public boolean isAsasAbertas(){
         return asasAbertas;
     }
 
