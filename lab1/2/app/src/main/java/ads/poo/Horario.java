@@ -82,6 +82,14 @@ public class Horario {
         return extenso;
     }
 
+    public long segundos(){
+        return(this.h*3600 + this.m*60 + this.s);
+    }
+
+    public long diferenca(Horario h){
+        return(this.segundos() > h.segundos() ? this.segundos() - h.segundos(): h.segundos() - this.segundos());
+    }
+
     @Override
     public String toString() {
         return(String.format("%02d:%02d:%02d",this.h, this.m, this.s));
