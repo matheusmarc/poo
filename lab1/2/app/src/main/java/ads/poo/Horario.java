@@ -4,20 +4,19 @@ public class Horario {
     private int h;
     private int m;
     private int s;
+    private String[] horas = new String[]{"Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte", "Vinte e um", "Vinte e dois", "Vinte e três"};
+
+    private String[] minsec = new String[]{"Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte", "Trinta","Quarenta", "Cinquenta"};
 
     // Construtor com hora, minuto e segundo definidos;
 
     public Horario(int h, int m, int s) {
-        if((h>=0 && h<24) && (m>=0 && m<60) && (s>=0 && s<60)) {
-            this.h = h;
-            this.m = m;
-            this.s = s;
-        }
-        else{
-            this.h = 0;
-            this.m = 0;
-            this.s = 0;
-        }
+        this.h = 0;
+        this.m = 0;
+        this.s = 0;
+        this.setH(h);
+        this.setM(m);
+        this.setS(s);
     }
 
     // Construtor com hora, e minuto definidos;
@@ -64,37 +63,27 @@ public class Horario {
         }
     }
 
+    public String extenso(){
+        String extenso = this.horas[this.h];
+
+        if(this.m < 21){
+            extenso = extenso + ", " +this.minsec[this.m];
+        }
+        else{
+            extenso = extenso + ", " + this.minsec[(this.m/10)+18] + " e " + this.minsec[(this.m%10)];
+        }
+
+        if(this.s < 21){
+            extenso = extenso + " e " +this.minsec[this.s] + (this.s == 1 ? " segundo":" segundos")  ;
+        }
+        else{
+            extenso = extenso + " e " + this.minsec[(this.s/10)+18] + " e " + this.minsec[(this.s%10)] + " segundos";
+        }
+        return extenso;
+    }
+
     @Override
     public String toString() {
-        String horas;
-
-        // Horas
-
-        if(this.h<10){
-            horas = "0"+h;
-        }
-        else{
-            horas = Integer.toString(h);
-        }
-
-        //Minutos
-
-        if(this.m<10){
-            horas = horas + ":"+"0"+m;
-        }
-        else{
-            horas = horas+":"+Integer.toString(m);
-        }
-
-        //Segundos
-
-        if(this.s<10){
-            horas = horas + ":"+"0"+s;
-        }
-        else{
-            horas = horas+":"+Integer.toString(s);
-        }
-
-        return(horas);
+        return(String.format("%02d:%02d:%02d",this.h, this.m, this.s));
     }
 }

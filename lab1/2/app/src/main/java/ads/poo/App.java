@@ -10,8 +10,9 @@ public class App {
 
     public static void main(String[] args) {
 
-        Horario h1 = new Horario(4,34,1);
+        Horario h1 = new Horario(59,59,59);
 
         System.out.println(h1);
+        System.out.println(h1.extenso());
     }
 }
