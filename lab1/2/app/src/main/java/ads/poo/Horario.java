@@ -4,7 +4,7 @@ public class Horario {
     private int h;
     private int m;
     private int s;
-    private String[] horas = new String[]{"Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte", "Vinte e um", "Vinte e dois", "Vinte e três"};
+    private String[] horas = new String[]{"Zero", "Uma", "Duas", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte", "Vinte e um", "Vinte e dois", "Vinte e três"};
 
     private String[] minsec = new String[]{"Zero", "Um", "Dois", "Três", "Quatro", "Cinco", "Seis", "Sete", "Oito", "Nove", "Dez", "Onze", "Doze", "Treze", "Quatorze", "Quinze", "Dezesseis", "Dezessete", "Dezoito", "Dezenove", "Vinte", "Trinta","Quarenta", "Cinquenta"};
 
@@ -64,13 +64,13 @@ public class Horario {
     }
 
     public String extenso(){
-        String extenso = this.horas[this.h];
+        String extenso = this.horas[this.h] + (this.h == 1 ? " hora":" horas") ;
 
         if(this.m < 21){
-            extenso = extenso + ", " +this.minsec[this.m];
+            extenso = extenso + ", " +this.minsec[this.m] + (this.m == 1 ? " minuto":" minutos") ;
         }
         else{
-            extenso = extenso + ", " + this.minsec[(this.m/10)+18] + " e " + this.minsec[(this.m%10)];
+            extenso = extenso + ", " + this.minsec[(this.m/10)+18] + " e " + this.minsec[(this.m%10)]+ " minutos";
         }
 
         if(this.s < 21){
