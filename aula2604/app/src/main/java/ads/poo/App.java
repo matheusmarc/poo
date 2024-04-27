@@ -4,6 +4,8 @@
 package ads.poo;
 
 public class App {
+    private Agenda agenda;
+
     public String getGreeting() {
         return "Hello World!";
     }
